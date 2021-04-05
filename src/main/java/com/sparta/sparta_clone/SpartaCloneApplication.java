@@ -1,13 +1,13 @@
-package com.sparta.cloningInstagram;
+package com.sparta.sparta_clone;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CloneApplication {
+public class SpartaCloneApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CloneApplication.class, args);
+        SpringApplication.run(SpartaCloneApplication.class, args);
     }
 
 }
