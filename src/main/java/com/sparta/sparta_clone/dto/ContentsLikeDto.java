@@ -8,5 +8,5 @@ import lombok.Setter;
 @Setter
 @Getter
 public class ContentsLikeDto {
-    private int like;
+    private int contentsLike;
 }

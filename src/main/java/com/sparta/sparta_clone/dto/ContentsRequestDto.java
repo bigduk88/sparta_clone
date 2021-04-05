@@ -4,8 +4,8 @@ import lombok.Getter;
 
 @Getter
 public class ContentsRequestDto {
-    String user_id;
+    String userId;
     String contents;
-    String image;
-    int like;
+    String img;
+    String insertDt;
 }

@@ -17,40 +17,39 @@ public class Contents extends Timestamped {
     private Long id;
 
     @Column(nullable = false)
-    private String user_id;
+    private String userId;
 
     @Column(nullable = false)
     private String contents;
 
     @Column(nullable = false)
-    private String image;
+    private String img;
 
     @Column(nullable = false)
-    private int like;
+    private String insertDt;
 
-    //Contents 더미 데이터 생성자
-    public Contents (String user_id, String contents, String image, int like) {
-        this.user_id = user_id;
-        this.contents = contents;
-        this.image = image;
-        this.like = like;
-    }
+    @Column(nullable = false)
+    private int contentsLike;
 
     // Contents Dto 생성자
     public Contents(ContentsRequestDto contentsRequestDto) {
-        this.user_id = contentsRequestDto.getUser_id();
+        this.userId = contentsRequestDto.getUserId();
         this.contents = contentsRequestDto.getContents();
-        this.image = contentsRequestDto.getImage();
+        this.img = contentsRequestDto.getImg();
+        this.insertDt = contentsRequestDto.getInsertDt();
+        this.contentsLike = 0;
     }
 
     //Contents  업데이트
     public void update (ContentsRequestDto contentsRequestDto) {
-        this.user_id = contentsRequestDto.getUser_id();
+        this.userId = contentsRequestDto.getUserId();
         this.contents = contentsRequestDto.getContents();
-        this.image = contentsRequestDto.getImage();
-        this.like = contentsRequestDto.getLike();
+        this.img = contentsRequestDto.getImg();
+        this.insertDt = contentsRequestDto.getInsertDt();
     }
 
     //좋아요 업데이트
-    public void updateLike(ContentsLikeDto contentsLikeDto) { this.like = contentsLikeDto.getLike();}
+    public void updateLike(ContentsLikeDto contentsLikeDto) {
+        this.contentsLike = contentsLikeDto.getContentsLike();
+    }
 }

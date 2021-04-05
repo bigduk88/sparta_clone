@@ -17,14 +17,15 @@ public class ContentsService {
     private final ContentsRepository contentsRepository;
 
     //게시글 조회 최신순
-    public List<Contents> getContents() { return contentsRepository.findAllByOrderByCreateAtDesc();}
+    public List<Contents> getContents() {
+        return contentsRepository.findAllByOrderByCreateAtDesc();
+    }
 
     //글 작성
     @Transactional
     public Contents createContents(ContentsRequestDto contentsRequestDto) {
         Contents contents = new Contents(contentsRequestDto);
         contentsRepository.save(contents);
-
         return contents;
     }
 
@@ -51,9 +52,9 @@ public class ContentsService {
         Contents contents = contentsRepository.findById(id).orElseThrow(
                 () -> new NullPointerException("해당 아이디가 존재하지 않습니다.")
         );
-        int cur_like = contents.getLike();
+        int cur_like = contents.getContentsLike();
         int new_like = cur_like +1;
-        contentsLikeDto.setLike(new_like);
+        contentsLikeDto.setContentsLike(new_like);
         contents.updateLike(contentsLikeDto);
         return contents.getId();
     }
@@ -64,9 +65,9 @@ public class ContentsService {
         Contents contents = contentsRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("해당 아이디가 존재하지 않습니다.")
         );
-        int cul_liked = contents.getLike();
-        int new_liked = cul_liked -1;
-        contentsLikeDto.setLike(new_liked);
+        int cur_liked = contents.getContentsLike();
+        int new_liked = cur_liked -1;
+        contentsLikeDto.setContentsLike(new_liked);
         contents.updateLike(contentsLikeDto);
         return contents.getId();
     }
