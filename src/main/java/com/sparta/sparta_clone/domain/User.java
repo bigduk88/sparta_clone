@@ -1,13 +1,12 @@
 package com.sparta.sparta_clone.domain;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import sun.security.util.Length;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -20,22 +19,22 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @Builder
 @Entity
-public class User {
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 100, nullable = false, unique = true)
+    @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(length = 300, nullable = false)
-    private String UserName;
+    @Column(nullable = false)
+    private String userName;
 
-    @Column(length = 300, nullable = false)
+    @Column(nullable = false)
     private String password;
 
-    @Column(length = 300, nullable = false)
+    @Column(nullable = false)
     private String myImg;
 
     @ElementCollection(fetch = FetchType.EAGER)
@@ -65,9 +64,15 @@ public class User {
     }
 
     @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
     public boolean isEnabled() {
         return true;
     }
+
 
 }
 

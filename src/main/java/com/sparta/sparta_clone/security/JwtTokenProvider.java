@@ -21,9 +21,9 @@ import java.util.List;
 @Component
 public class JwtTokenProvider {
 
-    private String secretKey = "cloneInstagram9";
+    private String secretKey = "sparta9";
 
-    private long tokenValidTime = 30 * 60 * 1000L; //토큰 유효시간 30
+    private long tokenValidTime = 30 * 60 * 1000L; //토큰 유효시간 30분
 
     private final UserDetailsService userDetailsService;
 
