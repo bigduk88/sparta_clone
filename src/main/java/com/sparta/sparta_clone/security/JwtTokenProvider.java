@@ -23,7 +23,7 @@ public class JwtTokenProvider {
 
     private String secretKey = "sparta9";
 
-    private long tokenValidTime = 30 * 60 * 1000L; //토큰 유효시간 30분
+    private long tokenValidTime = 1000 * 60L * 60L * 2L; //토큰 유효시간 2시간
 
     private final UserDetailsService userDetailsService;
 
@@ -34,9 +34,9 @@ public class JwtTokenProvider {
     }
 
     //jwt 토큰 생성.
-    public String createToken(String userPk, List<String> roles) {
+    public String createToken(String email, String userPk, String myImg, List<String> roles) {
         Claims claims = Jwts.claims().setSubject(userPk); // jwt payload에 저장되는 정보단위
-        claims.put("roles", roles); // 정본는 key / value 쌍으로 저장됨.
+        claims.put("roles", roles); // 정보는 key / value 쌍으로 저장됨.
         Date now = new Date();
         return Jwts.builder()
                 .setClaims(claims) //정보저장

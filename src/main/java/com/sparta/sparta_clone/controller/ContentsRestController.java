@@ -7,6 +7,8 @@ import com.sparta.sparta_clone.dto.ContentsRequestDto;
 import com.sparta.sparta_clone.repository.ContentsRepository;
 import com.sparta.sparta_clone.service.ContentsService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,9 +17,10 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 public class ContentsRestController {
-    private final ContentsService contentsService;
 
+    private final ContentsService contentsService;
     private final ContentsRepository contentsRepository;
+
     //게시글 전체 조회-최신순
     @GetMapping("/api/contents")
     public List<Contents> getContents() {
@@ -55,5 +58,6 @@ public class ContentsRestController {
     public Long subLike(@PathVariable Long id, @RequestBody ContentsLikeDto contentsLikeDto) {
         return contentsService.subLike(id, contentsLikeDto);
     }
+
 
 }

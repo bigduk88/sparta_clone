@@ -34,7 +34,7 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false)
+    @Column(columnDefinition = "TEXT")
     private String myImg;
 
     @ElementCollection(fetch = FetchType.EAGER)
@@ -50,7 +50,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return email;
+        return userName;
     }
 
     @Override
@@ -72,7 +72,5 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-
-
 }
 
