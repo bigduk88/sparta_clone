@@ -7,8 +7,6 @@ import com.sparta.sparta_clone.dto.ContentsRequestDto;
 import com.sparta.sparta_clone.repository.ContentsRepository;
 import com.sparta.sparta_clone.service.ContentsService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

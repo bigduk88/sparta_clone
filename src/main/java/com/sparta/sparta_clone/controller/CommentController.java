@@ -26,10 +26,16 @@ public class CommentController {
         return commentService.getCommentForContentsId(contentsId);
     }
 
-    //댓글 수정
+    //댓글 작성
     @PostMapping("/api/comments")
     public Comment createComment(@RequestBody CommentRequestDto commentRequestDto) {
         return commentService.createComment(commentRequestDto);
+    }
+
+    //댓글 수정
+    @PutMapping("/api/comments/{id}")
+    public Long updaeComment(@PathVariable Long id, @RequestBody CommentRequestDto commentRequestDto) {
+        return commentService.updateComment(id, commentRequestDto);
     }
 
     //댓글 삭제
