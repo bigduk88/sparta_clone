@@ -22,6 +22,10 @@ public class CommentController {
         return commentRepository.findByContentsId(contentsId);
     }
 
+<<<<<<< HEAD
+=======
+    //댓글 작성
+>>>>>>> refs/remotes/origin/master
     @PostMapping("/api/comments")
     public Comment createComment(@RequestBody CommentRequestDto commentRequestDto){
         Comment comment = new Comment(commentRequestDto);
@@ -33,6 +37,16 @@ public class CommentController {
         return commentService.update_comment(id, commentRequestDto);
     }
 
+<<<<<<< HEAD
+=======
+    //댓글 수정
+    @PutMapping("/api/comments/{id}")
+    public Long updaeComment(@PathVariable Long id, @RequestBody CommentRequestDto commentRequestDto) {
+        return commentService.updateComment(id, commentRequestDto);
+    }
+
+    //댓글 삭제
+>>>>>>> refs/remotes/origin/master
     @DeleteMapping("/api/comments/{id}")
     public Long deleteComment(@PathVariable Long id){
         commentRepository.deleteById(id);

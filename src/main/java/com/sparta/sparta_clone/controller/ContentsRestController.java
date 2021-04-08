@@ -55,4 +55,9 @@ public class ContentsRestController {
     public Long subLike(@PathVariable Long id, @RequestBody ContentsLikeDto contentsLikeDto) {
         return contentsService.subLike(id, contentsLikeDto);
     }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> refs/remotes/origin/master
 }
