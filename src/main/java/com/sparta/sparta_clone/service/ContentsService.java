@@ -71,5 +71,4 @@ public class ContentsService {
         contents.updateLike(contentsLikeDto);
         return contents.getId();
     }
-
 }

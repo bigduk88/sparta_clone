@@ -1,43 +1,50 @@
 package com.sparta.sparta_clone.domain;
 
 import com.sparta.sparta_clone.dto.CommentRequestDto;
-import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Setter
 @Getter
+@NoArgsConstructor
 @Entity
 public class Comment extends Timestamped{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id; //테이블 기본키 역할하는 id
+    private Long id;
 
     @Column(nullable = false)
-    private String userId; //댓글 작성자
+    private Long contentsId;
 
     @Column(nullable = false)
-    private String comment; //댓글 내용
+    private String userId;
 
     @Column(nullable = false)
-    private Long contentsId; //게시글 id(외래키 역)
+    private String comment;
 
     @Column(nullable = false)
-    private String commentDt; //댓글 작성 시간
+    private String myImg;
 
-    //comment DTO 생성자
-    public Comment(CommentRequestDto commentRequestDto) {
+    @Column(nullable = false)
+    private String commentDt;
+
+    public Comment (CommentRequestDto commentRequestDto){
+        this.contentsId = commentRequestDto.getContentsId();
         this.userId = commentRequestDto.getUserId();
         this.comment = commentRequestDto.getComment();
+        this.myImg = commentRequestDto.getMyImg();
+        this.commentDt = commentRequestDto.getCommentDt();
+    }
+
+    public void update_comment(CommentRequestDto commentRequestDto){
         this.contentsId = commentRequestDto.getContentsId();
-        this.commentDt = commentRequestDto.getCommentDT();
-    }
-
-    public void update(CommentRequestDto commentRequestDto) {
+        this.userId = commentRequestDto.getUserId();
         this.comment = commentRequestDto.getComment();
+        this.myImg = commentRequestDto.getMyImg();
+        this.commentDt = commentRequestDto.getCommentDt();
     }
-
 }

@@ -15,13 +15,13 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 public class ContentsRestController {
-    private final ContentsService contentsService;
 
+    private final ContentsService contentsService;
     private final ContentsRepository contentsRepository;
+
     //게시글 전체 조회-최신순
     @GetMapping("/api/contents")
     public List<Contents> getContents() {
-//        return contentsService.getContents();
         return contentsRepository.findAll();
     }
 
@@ -55,5 +55,6 @@ public class ContentsRestController {
     public Long subLike(@PathVariable Long id, @RequestBody ContentsLikeDto contentsLikeDto) {
         return contentsService.subLike(id, contentsLikeDto);
     }
+
 
 }
