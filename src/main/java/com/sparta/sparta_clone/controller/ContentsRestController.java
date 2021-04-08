@@ -45,16 +45,14 @@ public class ContentsRestController {
     }
 
     //좋아요 카운트 증가
-    @GetMapping("api/like/add/{id}")
+    @PutMapping("api/likes/add/{id}")
     public Long addLike(@PathVariable Long id, @RequestBody ContentsLikeDto contentsLikeDto) {
         return contentsService.addLike(id, contentsLikeDto);
     }
 
     //좋아요 카운트 감소
-    @PutMapping("/api/like/sub/{id}")
+    @PutMapping("/api/likes/sub/{id}")
     public Long subLike(@PathVariable Long id, @RequestBody ContentsLikeDto contentsLikeDto) {
         return contentsService.subLike(id, contentsLikeDto);
     }
-
-
 }
