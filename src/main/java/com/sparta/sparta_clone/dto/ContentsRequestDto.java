@@ -1,9 +1,7 @@
 package com.sparta.sparta_clone.dto;
 
 import lombok.Getter;
-import org.hibernate.mapping.Array;
-
-import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 public class ContentsRequestDto {
@@ -15,5 +13,5 @@ public class ContentsRequestDto {
     String insertDt;
 
     Long likeCnt;
-    ArrayList likeId;
+    List<String> likeId;
 }

@@ -12,7 +12,6 @@ public class WebConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry corsRegistry) {
         corsRegistry
                 .addMapping("/api/**")
-<<<<<<< HEAD
                 .allowedOrigins("**")
                 .allowedMethods(
                     HttpMethod.GET.name(),
@@ -20,14 +19,5 @@ public class WebConfig implements WebMvcConfigurer {
                     HttpMethod.POST.name(),
                     HttpMethod.PUT.name(),
                     HttpMethod.DELETE.name());
-=======
-                .allowedOrigins("**");
-//                .allowedMethods(
-//                    HttpMethod.GET.name(),
-//                    HttpMethod.HEAD.name(),
-//                    HttpMethod.POST.name(),
-//                    HttpMethod.PUT.name(),
-//                    HttpMethod.DELETE.name());
->>>>>>> refs/remotes/origin/master
     }
 }

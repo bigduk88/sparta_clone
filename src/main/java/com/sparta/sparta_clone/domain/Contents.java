@@ -19,31 +19,31 @@ public class Contents extends Timestamped {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(nullable = false)
+    @Column
     private String userId;
 
-    @Column(nullable = false)
+    @Column
     private String userName;
 
-    @Column(nullable = false)
+    @Column
     private String contents;
 
-    @Column(nullable = false)
+    @Column
     private String img;
 
-    @Column(nullable = false)
+    @Column
     private String myImg;
 
-    @Column(nullable = false)
+    @Column
     private String insertDt;
 
-    @Column(nullable = false)
+    @Column
     private int contentsLike;
 
-    @Column(nullable = false)
+    @Column
     private Long likeCnt;
 
-    @Column(nullable = false)
+    @Column
     @ElementCollection
     private List<String> likeId = new ArrayList<>();
 
@@ -65,6 +65,8 @@ public class Contents extends Timestamped {
     public void update (ContentsRequestDto contentsRequestDto) {
         this.contents = contentsRequestDto.getContents();
         this.img = contentsRequestDto.getImg();
+        this.likeCnt = contentsRequestDto.getLikeCnt();
+        this.likeId = contentsRequestDto.getLikeId();
     }
 
     //좋아요 업데이트
