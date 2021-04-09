@@ -17,6 +17,7 @@ public class CommentController {
     private final CommentRepository commentRepository;
     private final CommentService commentService;
 
+    // 특정 게시물을 ID로 지정하여 댓글 조회
     @GetMapping("/api/comments/{contentsId}")
     public List<Comment> getComment(@PathVariable Long contentsId){
         return commentRepository.findByContentsId(contentsId);

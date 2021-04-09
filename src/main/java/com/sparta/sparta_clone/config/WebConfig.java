@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
-    @Override
+    @Override       //CORS POLICY 관련 설정
     public void addCorsMappings(CorsRegistry corsRegistry) {
         corsRegistry
                 .addMapping("/api/**")

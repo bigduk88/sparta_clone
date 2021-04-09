@@ -4,12 +4,13 @@ import com.sparta.sparta_clone.dto.ContentsLikeDto;
 import com.sparta.sparta_clone.dto.ContentsRequestDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.mapping.Array;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+//글 작성과 관련된 entity를 생성함.
+//게시글의 고유 id는 자동 생성되며 작성자 id 작성자 이름, 내용, 사진, 프로필이미지, 좋아요 등의 colㅕmn을 생성
 @Getter
 @NoArgsConstructor
 @Entity
